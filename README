@@ -1,0 +1,87 @@
+
+# Dungeon Crawler - Adam Loos  
+**COM S 3270 - Spring 2025**  
+
+This project is a roguelike game using ASCII graphics, built incrementally through weekly assignments over the semester. Two iconic modern examples of such games are Angband and NetHack. As detailed in the CHANGELOG, this is the completed version of Assignment 1.09. Most of the code was written by me, with exceptions being portions provided by the professor for efficiency or as required components.
+---
+
+##  Key Files
+| File              | Description                                           |
+|-------------------|-------------------------------------------------------|
+| `rlg327.cpp`      | Main program loop and entry point                     |
+| `npc.cpp`         | NPC behavior and monster logic                        |
+| `object.cpp`      | Object generation and behavior                        |
+| `pc.cpp`          | Player character logic, inventory and equipment       |
+| `io.cpp`          | Terminal rendering and player input (through `ncurses`)   |
+| `monster_desc.txt`, `object_desc.txt` | Descriptions for in-game entities |
+
+---
+
+##  How to Build and Run
+
+###  Prerequisites
+- Linux or WSL environment
+- `g++` compiler
+- `make` and `ncurses` installed
+
+```bash
+sudo apt update
+sudo apt install build-essential libncurses5-dev
+```
+
+---
+
+###  Compilation
+
+```bash
+make          # Compile the game
+make clean    # Remove build artifacts
+make clobber  # Full cleanup, including save data
+```
+
+---
+
+###  Run the Game
+
+```bash
+./rlg327
+```
+
+Optional flags:
+- `--load` — load a saved dungeon
+- `--save` — save current dungeon
+- `--nummon <num>` — spawn a specific number of monsters
+- `--objcount <num>` — set number of objects per level
+
+Make sure you have a `~/.rlg327/` folder with the following:
+```
+~/.rlg327/monster_desc.txt  
+~/.rlg327/object_desc.txt
+```
+
+---
+
+## ⌨️ Controls (Key Commands)
+| Key        | Action                          |
+|------------|----------------------------------|
+| `1–9`(numpad preferably), `h/j/k/l`, `y/u/b/n` | Move in that direction |
+| `.` or `5` | Wait a turn                      |
+| `m`        | View list of visible monsters    |
+| `g`        | Teleport randomly                |
+| `T` / `D` / `H` | Show tunnel, distance, or hardness maps |
+| `f`        | Toggle fog of war                |
+| `i`        | Open inventory                   |
+| `e`        | View equipped items              |
+| `I`        | Inspect an inventory item        |
+| `w`        | Wear item                        |
+| `t`        | Take off equipped item           |
+| `d`        | Drop item                        |
+| `x`        | Destroy item                     |
+| `q`        | Show message queue               |
+| `Q`        | Quit                             |
+
+---
+
+**Created by Adam Loos**  
+Course: COM S 3270 — Spring 2025  
+
